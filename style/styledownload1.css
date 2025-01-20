@@ -1,1 +1,451 @@
 
+/* Importar fuentes futuristas adicionales */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Syncopate:wght@400;700&family=Orbitron:wght@400;500;700;900&display=swap');
+
+:root {
+  --primary: #00f2ff;
+  --secondary: #ff00e5;
+  --accent: #ff3c00;
+  --dark: #0a0a0f;
+  --darker: #050507;
+  --nav-bg: rgba(10, 10, 15, 0.95);
+  --text: #fff;
+  --card-bg: rgba(0, 242, 255, 0.05);
+  --transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --neon-shadow: 0 0 10px rgba(0, 242, 255, 0.5),
+                 0 0 20px rgba(0, 242, 255, 0.3);
+  --border: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Audiowide', cursive;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Efectos de texto futurista */
+.cyber-text {
+  text-shadow: 0 0 10px var(--primary),
+               0 0 20px var(--primary),
+               0 0 40px var(--primary);
+  animation: textPulse 2s infinite;
+}
+
+@keyframes textPulse {
+  0%, 100% { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary); }
+  50% { text-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary), 0 0 40px var(--primary); }
+}
+
+/* Navbar mejorado */
+.navbar {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1000;
+}
+
+.nav-container {
+    background: var(--nav-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado */
+    backdrop-filter: blur(10px);
+    border: var(--border); /* Borde general */
+    box-shadow: var(--neon-shadow);
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%); /* Ajuste del clip-path */
+}
+
+/* Borde personalizado */
+.nav-container::before,
+.nav-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 10%; /* Ancho del borde */
+    height: 100%;
+    background: var(--border); /* Color del borde */
+    z-index: -1; /* Colocar detrás del contenido */
+}
+
+.nav-container::before {
+    left: 0; /* Borde izquierdo */
+}
+
+.nav-container::after {
+    right: 0; /* Borde derecho */
+}
+
+.navbar-brand {
+    margin-left: 100px; /* Mover el logo a la derecha */
+}
+
+.navbar-logo {
+    width: 65px;
+    height: auto;
+    transition: var(--transition);
+    filter: drop-shadow(0 0 55px var(--primary));
+}
+
+.navbar-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0 auto; /* Centrado */
+}
+
+.nav-link {
+    color: var(--text);
+    font-family: 'Syncopate', sans-serif;
+    font-size: 14px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-link:hover {
+    color: var(--primary);
+    text-shadow: 0 0 5px var(--primary);
+}
+
+
+/* Hero Section mejorado */
+.hero-section {
+  height: 100vh;
+  min-height: 600px;
+  background: linear-gradient(45deg, var(--darker), var(--dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700; /* Cambiar el peso de la fuente para menos énfasis */
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.3); /* Reducir la intensidad del efecto de sombra */
+    animation: none; /* Eliminar la animación para que no resalte tanto */
+  }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(45deg, rgba(0, 242, 255, 0.1), transparent),
+    radial-gradient(circle at center, transparent, var(--darker));
+  opacity: 0.5;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+  animation: titleGlow 3s infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(0, 242, 255, 0.5); }
+  50% { text-shadow: 0 0 40px rgba(0, 242, 255, 0.8); }
+}
+
+/* Botones mejorados */
+.btn {
+    padding: 0.5rem 1rem; /* Ajustar padding para hacerlos más pequeños */
+    border: none;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Reducir el espaciado de letras */
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+    width: 100%; /* Hacer que los botones ocupen todo el ancho de la tarjeta */
+}
+
+.btn-cyber {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: #fff; /* Cambiar a blanco para mejorar la legibilidad */
+    font-weight: 600;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    margin-top: auto; /* Empuja el botón hacia abajo */
+}
+
+
+.btn-cyber::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transform: rotate(45deg);
+    animation: buttonShine 3s infinite;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Ajusta el valor para la separación deseada */
+}
+
+@keyframes buttonShine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.btn-cyber:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--primary);
+}
+
+#combination-display {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2rem; /* Aumentar el tamaño de la fuente */
+    color: rgb(9, 255, 0); /* Cambiado a rojo */
+    text-shadow: 0 0 5px rgba(0, 162, 255, 0.7); /* Efecto de sombra */
+    border: 2px solid var(--primary); /* Borde alrededor */
+    padding: 10px; /* Padding para mejorar el espacio */
+    border-radius: 10px; /* Esquinas redondeadas */
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
+}
+
+/* Estilos para las combinaciones restantes */
+#remaining-combinations {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5rem; /* Tamaño de fuente adecuado */
+    color: var(--text); /* Color de texto */
+    margin-top: 10px; /* Espacio superior */
+}
+
+/* Footer mejorado */
+.footer {
+    background: var(--darker);
+    padding: 3rem 0 1rem; /* Reducido padding superior */
+    border-top: var(--border);
+    position: relative;
+    text-align: center; /* Alinear texto al centro por defecto */
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.footer-logo {
+    width: 150px; /* Ajuste del tamaño del logo */
+    height: auto;
+    margin-bottom: 0.5rem; /* Reducido margen inferior */
+    filter: drop-shadow(0 0 5px var(--primary));
+    transition: var(--transition);
+}
+
+.footer-logo:hover {
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+.footer h5 {
+    color: var(--primary);
+    margin-bottom: 0.5rem; /* Reducido margen inferior */
+    font-family: 'Audiowide', cursive;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0; /* Sin padding para el ul */
+    text-align: center; /* Centrado de los enlaces */
+}
+
+.footer-links li {
+    margin: 0.3rem 0; /* Espaciado entre los enlaces reducido */
+}
+
+.footer-links a {
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--transition);
+    font-family: 'Share Tech Mono', monospace;
+    position: relative;
+    padding: 2px 0; /* Padding reducido */
+}
+
+.footer-links a::before {
+    content: '>';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transition: var(--transition);
+    color: var(--primary);
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+    left: -20px;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    padding-left: 2px; /* Padding reducido en hover */
+}
+
+.social-icons {
+    display: flex; /* Uso de flexbox para los iconos sociales */
+    justify-content: flex-start; /* Alinear iconos al principio */
+    gap: 0.5rem; /* Espacio entre los iconos reducido */
+    margin-top: 0.3rem; /* Espaciado arriba de los iconos reducido */
+}
+
+.social-icon {
+    color: var(--text);
+    font-size: 1.5rem; /* Tamaño de los iconos */
+    transition: color var(--transition);
+}
+
+.social-icon:hover {
+    color: var(--primary); /* Cambio de color al pasar el ratón */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 0.5rem 0; /* Reducido padding superior e inferior */
+    margin-top: 2rem; /* Margin top reducido */
+    border-top: var(--border);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.footer-row {
+    display: flex; /* Usar flexbox para la disposición */
+    justify-content: space-between; /* Distribuir columnas equitativamente */
+    align-items: center; /* Alinear verticalmente */
+    padding: 0 1rem; /* Espaciado horizontal */
+}
+
+.footer-column {
+    flex: 1; /* Distribuir espacio igualmente */
+}
+
+.footer-column.left {
+    text-align: left; /* Alinear contenido a la izquierda */
+}
+
+.footer-column.center {
+    text-align: center; /* Centrar contenido */
+}
+
+.footer-column.right {
+    text-align: left; /* Alinear contenido a la izquierda */
+    margin-left: 20px; /* Espacio a la izquierda de Síguenos */
+}
+
+/* Alinear la imagen del logo a la derecha */
+.footer-brand {
+    text-align: right; /* Alinear el logo a la derecha */
+    margin-left: auto; /* Empuja el logo hacia la derecha */
+}
+
+.glitch-title {
+    margin-top: -80px; /* Ajusta este valor según sea necesario */
+}
+
+
+/* Animaciones generales */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html {
+    scroll-behavior: smooth; /* Habilita el desplazamiento suave */
+}
+
+
+/* Scanline effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 242, 255, 0.1);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
