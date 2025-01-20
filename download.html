@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Esquizo Frenicos - Downloader YT Music</title>
+    <title>Team Esquizo - YT Music</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
             </a>
             <ul class="navbar-nav">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
-                <li><a href="download.html" class="nav-link">Downloader YT Music</a></li>
+                <li><a href="download.html" class="nav-link">YT Music</a></li>
             </ul>
         </div>
     </nav>
@@ -69,7 +69,7 @@
     </footer>
 
     <script>
-        document.getElementById('download-form').addEventListener('submit', function(event) {
+        document.getElementById('download-form').addEventListener('submit', async function(event) {
             event.preventDefault();
             const statusElement = document.getElementById('status');
             const youtubeUrl = document.getElementById('youtube-url').value;
@@ -84,13 +84,23 @@
             statusElement.style.color = 'blue';
 
             try {
-                const data = { downloadUrl: 'music/musica.mp3' }; // Ruta del archivo MP3 local
+                const response = await fetch('https://tu-servidor.com/api/download', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: youtubeUrl })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al procesar la solicitud.');
+                }
+
+                const { downloadUrl } = await response.json();
 
                 statusElement.textContent = 'Descarga lista. Haz clic aquí para descargar.';
                 statusElement.style.color = 'green';
 
                 const downloadLink = document.createElement('a');
-                downloadLink.href = data.downloadUrl;
+                downloadLink.href = downloadUrl;
                 downloadLink.textContent = 'Descargar MP3';
                 downloadLink.className = 'btn';
                 downloadLink.setAttribute('download', 'musica.mp3');
