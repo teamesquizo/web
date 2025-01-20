@@ -518,3 +518,149 @@ body::after {
     max-width: 600px;
     margin: 0 auto;
 }
+/* Contenedor principal del área de descarga */
+.download-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario de descarga */
+.download-form {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Grupo de entrada mejorado */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 5px;
+    margin: 1rem auto;
+    transition: all 0.3s ease;
+}
+
+.input-group:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 0 2px #3498db;
+}
+
+/* Icono de YouTube */
+.input-icon {
+    font-size: 1.5rem;
+    color: #ff0000;
+    margin-left: 15px;
+}
+
+/* Campo de entrada mejorado */
+.enhanced-input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.enhanced-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Botón de envío mejorado */
+.submit-btn {
+    padding: 12px 25px;
+    margin-right: 5px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submit-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn i {
+    font-size: 1.1rem;
+}
+
+/* Ejemplos de URL */
+.url-examples {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.url-examples p {
+    margin-bottom: 0.5rem;
+}
+
+.url-examples span {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Mensaje de estado */
+.status-message {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Resultado de la descarga */
+.download-result {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    .url-examples span {
+        display: block;
+        margin: 5px 0;
+    }
+}
