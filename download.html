@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Esquizo Frenicos - Downloader YT Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style/styledownload.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="navbar-brand">
+                <img src="imgs/foto3.webp" alt="Team Esquizo Frenicos Logo" class="navbar-logo">
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="/index.html" class="nav-link">Inicio</a></li>
+                <li><a href="/download.html" class="nav-link">Downloader YT Music</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="glitch-title">Descargador de YouTube a MP3</h1>
+                <p>Introduce el enlace de YouTube para descargar música en formato MP3.</p>
+                <form id="download-form">
+                    <input type="url" id="youtube-url" placeholder="https://www.youtube.com/watch?v=..." required>
+                    <button type="submit" class="btn">Descargar MP3</button>
+                </form>
+                <p id="status" class="status-message"></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-row">
+            <div class="footer-column left">
+                <div class="footer-brand">
+                    <img src="imgs/foto3.webp" alt="Team Esquizo Frenicos Logo" class="footer-logo">
+                </div>
+            </div>
+            <div class="footer-column center">
+                <h5>Enlaces útiles</h5>
+                <ul class="footer-links">
+                    <li><a href="/terms">Términos y Condiciones</a></li>
+                    <li><a href="/privacy">Política de Privacidad</a></li>
+                    <li><a href="/contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column right">
+                <h5>Síguenos</h5>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-steam"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Team Esquizo Frenicos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('download-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const statusElement = document.getElementById('status');
+            const youtubeUrl = document.getElementById('youtube-url').value;
+
+            if (!youtubeUrl) {
+                statusElement.textContent = 'Por favor, introduce un enlace válido.';
+                statusElement.style.color = 'red';
+                return;
+            }
+
+            statusElement.textContent = 'Procesando tu solicitud...';
+            statusElement.style.color = 'blue';
+
+            try {
+                // Aquí puedes reemplazar la ruta del archivo local
+                const data = { downloadUrl: 'music/musica.mp3' };  // Ruta del archivo MP3 local
+
+                statusElement.textContent = 'Descarga lista. Haz clic aquí para descargar.';
+                statusElement.style.color = 'green';
+
+                // Crear el enlace de descarga
+                const downloadLink = document.createElement('a');
+                downloadLink.href = data.downloadUrl;
+                downloadLink.textContent = 'Descargar MP3';
+                downloadLink.className = 'btn';
+                downloadLink.setAttribute('download', 'musica.mp3'); // Este atributo asegura la descarga
+                document.body.appendChild(downloadLink);
+            } catch (error) {
+                statusElement.textContent = `Error: ${error.message}`;
+                statusElement.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
