@@ -9,17 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="web/style/styledownload.css">
+    <link rel="stylesheet" href="style/styledownload.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="navbar-brand">
+            <a href="index.html" class="navbar-brand">
                 <img src="imgs/foto3.webp" alt="Team Esquizo Frenicos Logo" class="navbar-logo">
             </a>
             <ul class="navbar-nav">
-                <li><a href="/web/index.html" class="nav-link">Inicio</a></li>
-                <li><a href="/web/download.html" class="nav-link">Downloader YT Music</a></li>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="download.html" class="nav-link">Downloader YT Music</a></li>
             </ul>
         </div>
     </nav>
@@ -49,9 +49,9 @@
             <div class="footer-column center">
                 <h5>Enlaces útiles</h5>
                 <ul class="footer-links">
-                    <li><a href="/terms">Términos y Condiciones</a></li>
-                    <li><a href="/privacy">Política de Privacidad</a></li>
-                    <li><a href="/contact">Contacto</a></li>
+                    <li><a href="terms.html">Términos y Condiciones</a></li>
+                    <li><a href="privacy.html">Política de Privacidad</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-column right">
@@ -84,18 +84,16 @@
             statusElement.style.color = 'blue';
 
             try {
-                // Aquí puedes reemplazar la ruta del archivo local
-                const data = { downloadUrl: 'music/musica.mp3' };  // Ruta del archivo MP3 local
+                const data = { downloadUrl: 'music/musica.mp3' }; // Ruta del archivo MP3 local
 
                 statusElement.textContent = 'Descarga lista. Haz clic aquí para descargar.';
                 statusElement.style.color = 'green';
 
-                // Crear el enlace de descarga
                 const downloadLink = document.createElement('a');
                 downloadLink.href = data.downloadUrl;
                 downloadLink.textContent = 'Descargar MP3';
                 downloadLink.className = 'btn';
-                downloadLink.setAttribute('download', 'musica.mp3'); // Este atributo asegura la descarga
+                downloadLink.setAttribute('download', 'musica.mp3');
                 document.body.appendChild(downloadLink);
             } catch (error) {
                 statusElement.textContent = `Error: ${error.message}`;
