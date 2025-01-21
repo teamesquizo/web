@@ -152,15 +152,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section mejorado */
 .hero-section {
-  height: 100vh;
-  min-height: 600px;
-  background: linear-gradient(45deg, var(--darker), var(--dark));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(45deg, var(--darker), var(--dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px; /* Ajusta el valor según el tamaño de tu navbar */
+  }
 
 .hero-content h1 {
     font-size: 3.5rem;
@@ -521,6 +522,27 @@ body::after {
 /* Resultado de descarga */
 #download-result {
     margin-top: 20px;
+}
+
+
+/* Features */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+}
+
+.feature i {
+    font-size: 2rem;
+    color: #3498db;
 }
 
 
