@@ -448,3 +448,88 @@ body::after {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
 }
+
+#youtube-url {
+    width: 100%;
+    max-width: 320px;
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 2px solid #00bcd4;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+#youtube-url::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Efecto al enfocar el input */
+#youtube-url:focus {
+    border-color: #ff4081;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.5);
+    color: #000;
+}
+
+/* Botón */
+#submit-btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4081, #ff79b0);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn{
+    padding: 15px 30px;
+    font-size: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4081, #ff79b0);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 64, 129, 0.8);
+}
+
+/* Mensaje de estado */
+.status-message {
+    margin-top: 15px;
+    font-size: 1rem;
+    font-style: italic;
+    color: #ffd54f;
+}
+
+/* Resultado de descarga */
+#download-result {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
