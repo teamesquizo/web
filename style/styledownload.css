@@ -160,8 +160,9 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    margin-top: 80px; /* Ajusta el valor según el tamaño de tu navbar */
-  }
+    padding-top: 200px; /* Ajusta según el tamaño de tu navbar */
+    box-sizing: border-box; /* Asegura que el padding no afecta el height */
+}
 
 .hero-content h1 {
     font-size: 3.5rem;
