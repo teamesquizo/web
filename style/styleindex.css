@@ -654,3 +654,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 50px;
   }
 }
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 250px; /* Ajuste específico para dispositivos móviles */
+    }
+}
