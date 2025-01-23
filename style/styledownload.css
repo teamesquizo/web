@@ -752,3 +752,9 @@ body::after {
       width: 50px;
     }
   }
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 250px; /* Ajuste específico para dispositivos móviles */
+    }
+}
