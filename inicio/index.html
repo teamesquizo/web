@@ -18,11 +18,11 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="inicio" class="navbar-brand">
+            <a href="/inicio" class="navbar-brand">
                 <img src="../imgs/foto3.webp" alt="Team Esquizo Logo" class="navbar-logo">
             </a>
             <ul class="navbar-nav">
-                <li><a href="/" class="nav-link">Inicio</a></li>
+                <li><a href="/inicio" class="nav-link">Inicio</a></li>
                 <li><a href="/download" class="nav-link">YT Music</a></li>
                 <li><a href="/discord" class="nav-link">Discord Nitro</a></li>
             </ul>
@@ -59,7 +59,7 @@
                             <i class="fas fa-music"></i> YT Music Downloader
                         </h3>
                         <p>Descarga tu música favorita de YouTube en alta calidad.</p>
-                        <a href="download" class="btn btn-cyber">Ir al descargador</a>
+                        <a href="/download" class="btn btn-cyber">Ir al descargador</a>
                     </div>
                 </div>
             </div>
@@ -97,5 +97,13 @@
     </footer>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelector('.hero-buttons a').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#services').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+    </script>
 </body>
 </html>
