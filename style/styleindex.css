@@ -224,8 +224,17 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1 1 300px;
     height: 350px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Para que las tarjetas pasen a la siguiente línea si no caben */
+    justify-content: center; /* O usa space-between/space-around según el diseño deseado */
+    gap: 20px; /* Espacio entre las tarjetas */
+    display: flex;  /* Usa flexbox para alinear los elementos en fila */
+}
+
+.col-md-12 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Espacio entre tarjetas */
 }
 
 .section-title {
@@ -243,6 +252,8 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-10px);
   box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
 }
+
+
 .service-category {
     font-size: 2rem;
     font-weight: 700;

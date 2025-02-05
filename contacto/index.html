@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- [Head section se mantiene igual...] -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Esquizo - Discord Nitro</title>
+    <title>Team Esquizo - Contacto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style/stylediscord.css">
+    <link rel="stylesheet" href="../style/stylecontacto.css">
     <link rel="icon" type="image/png" href="../imgs/fotoredonda.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <!-- [Navbar y contenido se mantiene igual...] -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/discord" class="navbar-brand">
+            <a href="/inicio" class="navbar-brand">
                 <img src="../imgs/foto3.webp" alt="Team Esquizo Frenicos Logo" class="navbar-logo">
             </a>
             <ul class="navbar-nav">
@@ -31,24 +30,36 @@
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="glitch-title">Discord Nitro</h1>
-                <div class="hero-description">
-                    <p class="feature-text">Lleva tu experiencia de Discord al siguiente nivel</p>
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-star"></i> Emojis personalizados en todos los servidores</li>
-                        <li><i class="fas fa-film"></i> Streaming en HD de alta calidad</li>
-                        <li><i class="fas fa-upload"></i> Sube archivos de hasta 500MB</li>
-                        <li><i class="fas fa-palette"></i> Personaliza tu perfil con un banner único</li>
-                        <li><i class="fas fa-gem"></i> Insignia exclusiva de Nitro en tu perfil</li>
-                        <li><i class="fas fa-rocket"></i> 2 mejoras gratuitas para tu servidor favorito</li>
-                    </ul>
-                    <a href="/contacto"><button type="submit" class="btn-submit">¡Más Información!</button></a>                
+                <h1 class="glitch-title">Contacto</h1>
+                <div class="contact-container">
+                    <!-- Formulario con redirección personalizada -->
+                    <form id="contactForm" action="https://formspree.io/f/myzkjrdo" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" required placeholder="Tu correo electrónico">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje:</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Escribe tu mensaje aquí"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar</button>
+                    </form>
+                    <!-- Mensaje que aparece después de enviar -->
+                    <div id="successMessage" style="display:none;">
+                        <p>¡Mensaje enviado!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- [Footer se mantiene igual...] -->
     <footer class="footer">
         <div class="footer-row">
             <div class="footer-column left">
@@ -77,6 +88,29 @@
             <p>© 2025 Team Esquizo Frenicos. Todos los derechos reservados.</p>
         </div>
     </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Evitar la redirección de Formspree y mostrar el mensaje de éxito en la página actual
+        $('#contactForm').on('submit', function(event) {
+            event.preventDefault(); // Evita la redirección a la página de gracias de Formspree
+
+            var formData = $(this).serialize(); // Serializa los datos del formulario
+            $.ajax({
+                url: 'https://formspree.io/f/myzkjrdo', // Este es el endpoint correcto
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    // Si el envío es exitoso, muestra el mensaje
+                    $('#successMessage').show(); // Muestra el mensaje de éxito
+                    $('#contactForm').trigger('reset'); // Opcional: resetea el formulario
+                },
+                error: function(xhr, status, error) {
+                    alert("Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
