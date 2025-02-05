@@ -665,3 +665,46 @@ h1, h2, h3, h4, h5, h6 {
     width: 50px;
   }
 }
+
+@media (max-width: 375px) {
+  .hero-content h1 {
+    font-size: 1.5rem; /* Reduce un poco el tamaño del título */
+  }
+
+  .hero-content h4 {
+    font-size: 0.875rem; /* Ajusta también los subtítulos */
+  }
+
+  .btn-cyber-2 {
+    padding: 0.75rem 1rem; /* Reduce padding de botones */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente de los botones */
+  }
+
+  .section-title {
+    font-size: 1.5rem; /* Ajusta el tamaño de la sección */
+  }
+
+  .service-category {
+    font-size: 1.25rem; /* Ajusta el tamaño de las categorías */
+  }
+
+  .cyber-card {
+    padding: 1rem; /* Reduce el padding de las tarjetas */
+  }
+
+  .navbar-logo {
+    width: 45px; /* Reduce el tamaño del logo en la barra de navegación */
+  }
+
+  .nav-link {
+    font-size: 0.9rem; /* Reduce el tamaño de los enlaces de navegación */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 80px; /* Ajusta este valor según el tamaño de tu navbar */
+  }
+}
+
+
