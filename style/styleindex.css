@@ -692,10 +692,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem; /* Reduce el padding de las tarjetas */
   }
 
-  .navbar-logo {
-    width: 45px; /* Reduce el tamaño del logo en la barra de navegación */
-  }
-
   .nav-link {
     font-size: 0.9rem; /* Reduce el tamaño de los enlaces de navegación */
   }
