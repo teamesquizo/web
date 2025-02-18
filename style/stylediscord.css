@@ -614,6 +614,22 @@ body::after {
     }
   
     /* Hero section responsive */
+    .hero-section {
+        padding-top: 250px; /* Ajuste específico para dispositivos móviles */
+        padding-bottom: 100px; /* Nuevo: Añadido padding inferior */
+        height: auto; /* Nuevo: Cambiado de 100vh a auto */
+        min-height: auto; /* Nuevo: Permitir que crezca según el contenido */
+    }
+
+    .hero-content {
+        padding: 2rem 20px;
+        margin-bottom: 40px; /* Nuevo: Añadido margen inferior */
+    }
+
+    .benefits-list {
+        margin-bottom: 60px; /* Nuevo: Aumentado el margen inferior */
+    }
+
     .hero-content h1 {
       font-size: 2rem;
     }
@@ -633,7 +649,6 @@ body::after {
       margin-bottom: 100;
     }
     
-  
     /* Services section responsive */
     .cyber-card {
       width: 95%;
@@ -688,6 +703,18 @@ body::after {
   }
   
   @media (max-width: 480px) {
+    .hero-section {
+        padding-bottom: 120px; /* Nuevo: Más padding inferior para móviles pequeños */
+    }
+
+    .hero-content {
+        margin-bottom: 50px; /* Nuevo: Más margen para móviles pequeños */
+    }
+
+    .benefits-list {
+        margin-bottom: 70px; /* Nuevo: Más margen para móviles pequeños */
+    }
+
     .hero-content h1 {
       font-size: 1.75rem;
     }
@@ -717,10 +744,4 @@ body::after {
       width: 50px;
     }
   }
-
-@media (max-width: 768px) {
-    .hero-section {
-        padding-top: 250px; /* Ajuste específico para dispositivos móviles */
-    }
-}
 
